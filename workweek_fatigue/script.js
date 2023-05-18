@@ -1,34 +1,44 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var ctx = document.getElementById("graph").getContext("2d");
-    
-    var data = {
-        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        datasets: [{
-            label: "Engagement and Concentration",
-            data: [80, 70, 60, 50, 40],
-            fill: false,
-            borderColor: "#007bff",
-            pointRadius: 4,
-            pointBackgroundColor: "#007bff",
-            pointBorderColor: "#007bff",
-            pointHoverRadius: 6,
-            pointHoverBackgroundColor: "#007bff",
-            pointHoverBorderColor: "#007bff"
-        }]
+document.addEventListener("DOMContentLoaded", () => {
+    const ctx = document.getElementById("graph").getContext("2d");
+  
+    const data = {
+      labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      datasets: [
+        {
+          label: "Engagement and Concentration",
+          data: [100, 70, 40, 17, 2],
+          fill: true,
+          backgroundColor: "rgba(0, 123, 255, 0.3)",
+          borderColor: "#007bff",
+          pointRadius: 4,
+          pointBackgroundColor: "#007bff",
+          pointBorderColor: "#007bff",
+          pointHoverRadius: 6,
+          pointHoverBackgroundColor: "#007bff",
+          pointHoverBorderColor: "#007bff",
+        },
+      ],
     };
-
-    var options = {
-        scales: {
-            y: {
-                beginAtZero: true,
-                max: 100
-            }
-        }
+  
+    const options = {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100,
+        },
+      },
+      plugins: {
+        tooltip: {
+          mode: "nearest",
+        },
+      },
+      tension: 0.4, // Controls the curvature of the line (0 = straight lines, 1 = very curved)
     };
-
-    var lineChart = new Chart(ctx, {
-        type: "line",
-        data: data,
-        options: options
+  
+    const lineChart = new Chart(ctx, {
+      type: "line",
+      data: data,
+      options: options,
     });
-});
+  });
+  
