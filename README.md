@@ -1,2 +1,1 @@
-# life_fun_graphics
-An archive of real life fun graphics
+A work week fatigue graphic made with HTML, CSS and Javascript
